@@ -25,7 +25,7 @@ plat_x = displayWidth*1/20;
 plat_y = displayHeight*2/20;
 plat_width = displayWidth*18/20;
 plat_height = displayHeight*16/20;
-hole_width_height = displayHeight/3;
+hole_width_height = displayHeight/4;
 //
 hole1Top_x = displayWidth*4/20;
 hole1Top_y = displayHeight*1/3;
