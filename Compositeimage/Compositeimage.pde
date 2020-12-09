@@ -1,6 +1,6 @@
 //Global Variables
 float plat_x, plat_y, plat_width, plat_height;
-int black, green;
+int black, green, brown;
 //
 float hole1Top_x, hole1Top_y;
 float hole2Top_x, hole2Top_y;
@@ -14,6 +14,8 @@ float hole4Bot_x, hole4Bot_y;
 int hole_width_height;
 //
 float mole_x, mole_y, mole_width_height;
+//
+int running;
 //Display Geometry
 fullScreen();
 //if (displayWidth > displayHeight) shortSide = displayHeight
@@ -21,6 +23,10 @@ fullScreen();
 //Populating Variables
 black = #AFAFAF;
 green = #22E029;
+brown = #A07603;
+//
+running = 1;
+//
 plat_x = displayWidth*1/20;
 plat_y = displayHeight*2/20;
 plat_width = displayWidth*18/20;
@@ -50,11 +56,11 @@ hole3Bot_y = displayHeight*2/3;
 //
 hole4Bot_x = hole4Top_x;
 hole4Bot_y = displayHeight*2/3;
-//
-mole_x = displayWidth*8/20;
-mole_y = 1;
-mole_width_height = 1;
-//
+
+mole_x = random(displayWidth);
+mole_y = random(displayHeight);
+mole_width_height = (displayWidth*1/12);
+
 //Platform
 fill(green);
 rect(plat_x, plat_y, plat_width, plat_height);
@@ -73,5 +79,6 @@ circle(hole3Bot_x, hole3Bot_y, hole_width_height);
 circle(hole4Bot_x, hole4Bot_y, hole_width_height);
 //
 //The moles
+fill(brown);
 circle(mole_x, mole_y, mole_width_height);
 //
