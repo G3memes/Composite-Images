@@ -1,5 +1,6 @@
+
 void populating_Variables() {
-    black = #AFAFAF;
+  black = #AFAFAF;
   green = #22E029;
   brown = #A07603;
   //
@@ -33,5 +34,5 @@ void populating_Variables() {
   hole4Bot_x = hole4Top_x;
   hole4Bot_y = displayHeight*2/3;
   //
-  mole_there = 0;
+  
 } //End  populating_Variable()

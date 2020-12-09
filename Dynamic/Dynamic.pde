@@ -1,4 +1,4 @@
-//Global Variables
+//Global Variables //<>//
 float plat_x, plat_y, plat_width, plat_height;
 int black, green, brown, reset;
 //
@@ -12,32 +12,45 @@ float hole2Bot_x, hole2Bot_y;
 float hole3Bot_x, hole3Bot_y;
 float hole4Bot_x, hole4Bot_y;
 int hole_width_height;
-int mole_there;
 //
-float mole_x, mole_y, mole_width_height;
+float mole_x, mole_y, mole_diameter;
 //
-
+boolean start = true;
+boolean mole_there = false;
+//
+int x, y;
+float color_thing;
+//
 void setup() {
+  frameRate(60);
   fullScreen();
   //
   //Variable Population
   populating_Variables();
   //
   initial_Data();
+  //
 } //End setup()
-
 void draw() {
-  mole_x = random(displayWidth);
-  mole_y = random(displayHeight);
-  mole_width_height = (displayWidth*1/12);
-  fill(brown);
-  //The moles
-  circle(mole_x, mole_y, mole_width_height);
-  fill(reset);
+  while (start) {
+    if (mole_there == false) {
+      mole_x = random(displayWidth);
+      mole_y = random(displayHeight);
+      mole_diameter = (displayWidth*1/12);
+      fill(brown);
+      //The moles
+      circle(mole_x, mole_y, mole_diameter);
+      println(mole_x);
+      println(mouseX);
+      start = false;
+      mole_there = true;
+    }
+  }
 } //End draw()
-
+ //<>//
+void mousePressed() {
+  hit_mole(); //<>//
+}
+ 
 void keyPressed() {
 } //End keyPressed()
-
-void mousePressed() {
-} //End mousePressed()

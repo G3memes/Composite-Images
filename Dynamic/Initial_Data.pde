@@ -1,4 +1,7 @@
+
 void initial_Data() {
+  //Background
+  background(#000000);
   //Platform
   fill(green);
   rect(plat_x, plat_y, plat_width, plat_height);
