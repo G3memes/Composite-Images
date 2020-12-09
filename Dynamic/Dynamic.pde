@@ -12,6 +12,7 @@ float hole2Bot_x, hole2Bot_y;
 float hole3Bot_x, hole3Bot_y;
 float hole4Bot_x, hole4Bot_y;
 int hole_width_height;
+int mole_there;
 //
 float mole_x, mole_y, mole_width_height;
 //
@@ -26,7 +27,8 @@ void setup() {
 } //End setup()
 
 void draw() {
-  mole_x = random(displayWidth);
+  if (mole_there = 0)
+    mole_x = random(displayWidth);
   mole_y = random(displayHeight);
   mole_width_height = (displayWidth*1/12);
   fill(brown);
