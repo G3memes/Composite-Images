@@ -27,8 +27,7 @@ void setup() {
 } //End setup()
 
 void draw() {
-  if (mole_there = 0)
-    mole_x = random(displayWidth);
+  mole_x = random(displayWidth);
   mole_y = random(displayHeight);
   mole_width_height = (displayWidth*1/12);
   fill(brown);
