@@ -20,7 +20,7 @@ fullScreen();
 //
 //Populating Variables
 black = #AFAFAF;
-green = #92ED0C;
+green = #22E029;
 plat_x = displayWidth*1/20;
 plat_y = displayHeight*2/20;
 plat_width = displayWidth*18/20;
