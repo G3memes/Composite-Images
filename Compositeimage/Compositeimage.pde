@@ -15,7 +15,6 @@ int hole_width_height;
 //
 float mole_x, mole_y, mole_width_height;
 //
-int running;
 //Display Geometry
 fullScreen();
 //if (displayWidth > displayHeight) shortSide = displayHeight
@@ -24,8 +23,6 @@ fullScreen();
 black = #AFAFAF;
 green = #22E029;
 brown = #A07603;
-//
-running = 1;
 //
 plat_x = displayWidth*1/20;
 plat_y = displayHeight*2/20;
