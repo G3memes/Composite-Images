@@ -1,32 +1,91 @@
-PFont titleFont;
-String time = "010";
-int t;
-int interval = 10;
-String timer_text;
+//Global Variables //<>// //<>//
+float plat_x, plat_y, plat_width, plat_height;
+int black, green, brown, reset;
+//
+PImage pic;
+float image_x, image_y, image_width, image_height, imageWidthRatio, imageHeightRatio;
+//
+float hole1Top_x, hole1Top_y;
+float hole2Top_x, hole2Top_y;
+float hole3Top_x, hole3Top_y;
+float hole4Top_x, hole4Top_y;
+//
+float hole1Bot_x, hole1Bot_y;
+float hole2Bot_x, hole2Bot_y;
+float hole3Bot_x, hole3Bot_y;
+float hole4Bot_x, hole4Bot_y;
+int hole_width_height;
+//
 float timer_x, timer_y, timer_width, timer_height;
+float start_x, start_y, start_width, start_height;
+float mole_x, mole_y, mole_diameter;
+//
+float score_x, score_y, score_width, score_height;
+String end_text;
+//
+boolean start = true;
+boolean mole_there = false;
+//
+int x, y;
+float color_thing;
+//
+int game_start = 1;
+//
+float mole_pos;
+//
+float total = 20000;
+//
+//
+PFont titleFont;
+//
+String start_text;
+//
+float reset_timer = 0;
+int timer = 0;
+//
+int score = 0;
+int timer_text = 20-(int(millis()-reset_timer)/1000);
+//
+boolean next = false;
 
-
-void setup()
-{
+void setup() {
   fullScreen();
-  titleFont = createFont("Arial", 30);
-  background(255);
-  timer_x = displayWidth*4/20;
-  timer_y = displayHeight*1/40;
-  timer_width = displayWidth*12/20;
-  timer_height = displayHeight*1/20;
+  frameRate(120);
+  background(#FFFFFF);
+  populating_Variables();
 }
 
 void draw() {
-  t = interval-int(millis()/1000);
-  time = nf(t, 3);
-  rect(timer_x, timer_y, timer_width, timer_height);
-  textAlign(CENTER, CENTER); 
-  textFont(titleFont, 30); 
-  text(t, timer_x, timer_y, timer_width, timer_height);
+  if (game_start == 1) {
 
-  if (t == 0) {
-    println("GAME OVER");
-    interval+=10;
+    if (keyPressed == true) {
+      reset_timer = millis();
+      initial_Data();
+      game_start = 0;
+    }
   }
+  if (game_start == 0) {
+
+    if (millis() < total) {   
+      mole_diameter = (displayWidth*1/12);
+    }
+
+    if (millis() >= 0) {
+    }
+    if (20-(int(millis()-reset_timer)/1000) <= 0) {
+    }
+    while (start) {
+      if (mole_there == false) {
+        random_selection();
+        fill(brown);
+        //The moles
+        circle(mole_x, mole_y, mole_diameter);
+        mole_there = true;
+        start = false;
+      }
+    }
+  }
+}
+void mousePressed() {
+  hit_mole();
 }

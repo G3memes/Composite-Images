@@ -16,12 +16,13 @@ void hit_mole() {
     println(image_y);
     initial_Data();
     image(pic, image_x, image_y, image_width, image_height);
-
-    delay(100);
-    random_selection();
+    next = true;
+  }
+  if (next == true) { 
+    delay(500);
     start = true;
     mole_there = false;
     score += 1;
-    mole_hit = false;
+    next = false;
   }
 }

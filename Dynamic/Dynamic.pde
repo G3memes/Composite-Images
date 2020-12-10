@@ -2,6 +2,9 @@
 float plat_x, plat_y, plat_width, plat_height;
 int black, green, brown, reset;
 //
+PImage pic;
+float image_x, image_y, image_width, image_height, imageWidthRatio, imageHeightRatio;
+//
 float hole1Top_x, hole1Top_y;
 float hole2Top_x, hole2Top_y;
 float hole3Top_x, hole3Top_y;
@@ -30,23 +33,24 @@ int game_start = 1;
 //
 float mole_pos;
 //
-int s = millis()/1000;
-int total = 20000;
+float total = 20000;
 //
 //
 PFont titleFont;
 //
-String timer_text;
 String start_text;
 //
 float reset_timer = 0;
 int timer = 0;
 //
 int score = 0;
+int timer_text = 20-(int(millis()-reset_timer)/1000);
+//
+boolean mole_hit = false;
+//
 void setup() {
-  frameRate(60);
+  frameRate(120);
   fullScreen();
-
   //Variable Population
   populating_Variables();
 } //End setup()
@@ -56,31 +60,31 @@ void draw() {
     start_screen();
     if (keyPressed == true) {
       reset_timer = millis();
-      game_start = 0;
       initial_Data();
+      game_start = 0;
     }
   }
   if (game_start == 0) {
 
     if (millis() < total) {   
-      random_selection();
       mole_diameter = (displayWidth*1/12);
     }
 
-    if (millis() > 0) {
+    if (millis() >= 0) {
       timer_code();
       score();
     }
-    if (millis() >= total) {
+    if (20-(int(millis()-reset_timer)/1000) <= 0) {
       end_screen();
     }
     while (start) {
       if (mole_there == false) {
+        random_selection();
         fill(brown);
         //The moles
         circle(mole_x, mole_y, mole_diameter);
-        start = false;
         mole_there = true;
+        start = false;
       }
     }
   }
