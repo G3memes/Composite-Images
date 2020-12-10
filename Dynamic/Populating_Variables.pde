@@ -1,13 +1,19 @@
-
 void populating_Variables() {
   black = #AFAFAF;
   green = #22E029;
   brown = #A07603;
+  reset = #FFFFFF;
+  //
+  timer_x = displayWidth*4/20;
+  timer_y = displayHeight*1/40;
+  timer_width = displayWidth*12/20;
+  timer_height = displayHeight*1/20;
   //
   plat_x = displayWidth*1/20;
   plat_y = displayHeight*2/20;
   plat_width = displayWidth*18/20;
   plat_height = displayHeight*16/20;
+  //
   hole_width_height = displayHeight/4;
   //
   hole1Top_x = displayWidth*4/20;
@@ -33,6 +39,8 @@ void populating_Variables() {
   //
   hole4Bot_x = hole4Top_x;
   hole4Bot_y = displayHeight*2/3;
+  //
+  titleFont = createFont ("Arial", 55);
   //
   
 } //End  populating_Variable()

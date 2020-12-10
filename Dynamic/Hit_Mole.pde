@@ -3,6 +3,7 @@ void hit_mole() {
  y = mouseY;
  color_thing = get(x, y);
  if (color_thing == brown) {
+   random_selection();
    start = true;
    mole_there = false;
    initial_Data();
