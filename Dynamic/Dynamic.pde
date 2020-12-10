@@ -14,7 +14,11 @@ float hole4Bot_x, hole4Bot_y;
 int hole_width_height;
 //
 float timer_x, timer_y, timer_width, timer_height;
+float start_x, start_y, start_width, start_height;
 float mole_x, mole_y, mole_diameter;
+//
+float score_x, score_y, score_width, score_height;
+String end_text;
 //
 boolean start = true;
 boolean mole_there = false;
@@ -22,52 +26,62 @@ boolean mole_there = false;
 int x, y;
 float color_thing;
 //
-boolean game_start = true;
+int game_start = 1;
 //
 float mole_pos;
 //
 int s = millis()/1000;
-int total = 30000;
+int total = 20000;
 //
 //
 PFont titleFont;
 //
 String timer_text;
+String start_text;
 //
+float reset_timer = 0;
+int timer = 0;
+//
+int score = 0;
 void setup() {
   frameRate(60);
   fullScreen();
 
   //Variable Population
   populating_Variables();
-
-  initial_Data();
 } //End setup()
+
 void draw() {
-  if (millis() >= total)
-    exit();
-  if (game_start == true) {
-    random_selection();
-    mole_diameter = (displayWidth*1/12);
-    game_start = false;
+  if (game_start == 1) {
+    start_screen();
+    if (keyPressed == true) {
+      reset_timer = millis();
+      game_start = 0;
+      initial_Data();
+    }
   }
-  if (millis() > 0) {
-    timer_text = 30-(millis()/1000) + " seconds";
-    fill(reset);
-    rect(timer_x, timer_y, timer_width, timer_height);
-    fill(#000000);
-    textAlign(CENTER, CENTER); 
-    textFont(titleFont, 30); 
-    text(timer_text, timer_x, timer_y, timer_width, timer_height);
-  } 
-  while (start) {
-   println(millis());
-   if (mole_there == false) {
-     fill(brown);
-     //The moles
-     circle(mole_x, mole_y, mole_diameter);
-     start = false;
-     mole_there = true;
+  if (game_start == 0) {
+
+    if (millis() < total) {   
+      random_selection();
+      mole_diameter = (displayWidth*1/12);
+    }
+
+    if (millis() > 0) {
+      timer_code();
+      score();
+    }
+    if (millis() >= total) {
+      end_screen();
+    }
+    while (start) {
+      if (mole_there == false) {
+        fill(brown);
+        //The moles
+        circle(mole_x, mole_y, mole_diameter);
+        start = false;
+        mole_there = true;
+      }
     }
   }
 } //End draw()
@@ -75,6 +89,3 @@ void draw() {
 void mousePressed() {
   hit_mole();
 }
-
-void keyPressed() {
-} //End keyPressed()

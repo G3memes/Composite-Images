@@ -4,10 +4,20 @@ void populating_Variables() {
   brown = #A07603;
   reset = #FFFFFF;
   //
+  start_x = displayWidth*0;
+  start_y = displayHeight*0;
+  start_width = displayWidth;
+  start_height = displayHeight;
+  //
   timer_x = displayWidth*4/20;
   timer_y = displayHeight*1/40;
   timer_width = displayWidth*12/20;
   timer_height = displayHeight*1/20;
+  //
+  score_x = displayWidth*4/20;
+  score_y = displayHeight*35/40;
+  score_width = displayWidth*12/20;
+  score_height = displayHeight*3/30;
   //
   plat_x = displayWidth*1/20;
   plat_y = displayHeight*2/20;
@@ -42,5 +52,4 @@ void populating_Variables() {
   //
   titleFont = createFont ("Arial", 55);
   //
-  
 } //End  populating_Variable()
