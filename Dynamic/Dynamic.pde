@@ -64,6 +64,7 @@ void draw() {
       game_start = 0;
     }
   }
+  
   if (game_start == 0) {
 
     if (millis() < total) {   
