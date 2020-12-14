@@ -61,10 +61,12 @@ void setup() {
 void draw() {
   if (game_start == 1) {
     start_screen();
-    if (keyPressed == true) {
-      reset_timer = millis();
-      initial_Data();
-      game_start = 0;
+    if (keyPressed) {
+      if (key == ENTER) {
+        reset_timer = millis();
+        initial_Data();
+        game_start = 0;
+      }
     }
   }
 
