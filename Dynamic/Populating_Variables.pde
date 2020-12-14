@@ -52,4 +52,8 @@ void populating_Variables() {
   //
   titleFont = createFont ("Arial", 55);
   //
+  quit_x = displayWidth *35/40;
+  quit_y = displayHeight *1/40;
+  quit_width = displayWidth *1/10;
+  quit_height = displayHeight*1/20;
 } //End  populating_Variable()

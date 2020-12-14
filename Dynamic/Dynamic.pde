@@ -4,6 +4,7 @@ int black, green, brown, reset;
 //
 PImage pic;
 float image_x, image_y, image_width, image_height, imageWidthRatio, imageHeightRatio;
+float quit_x, quit_y, quit_width, quit_height;
 //
 float hole1Top_x, hole1Top_y;
 float hole2Top_x, hole2Top_y;
@@ -25,6 +26,7 @@ String end_text;
 //
 boolean start = true;
 boolean mole_there = false;
+boolean quit_button = false;
 //
 int x, y;
 float color_thing;
@@ -39,6 +41,7 @@ float total = 20000;
 PFont titleFont;
 //
 String start_text;
+String quit_text = "QUIT";
 //
 float reset_timer = 0;
 int timer = 0;
@@ -64,8 +67,10 @@ void draw() {
       game_start = 0;
     }
   }
-  
+
   if (game_start == 0) {
+    quit_button = true;
+    quit_button();
 
     if (millis() < total) {   
       mole_diameter = (displayWidth*1/12);
@@ -77,6 +82,7 @@ void draw() {
     }
     if (20-(int(millis()-reset_timer)/1000) <= 0) {
       end_screen();
+      quit_button();
     }
     while (start) {
       if (mole_there == false) {
@@ -93,4 +99,9 @@ void draw() {
 
 void mousePressed() {
   hit_mole();
+  if (quit_button == true) {
+    if (mouseX > quit_x && mouseX < quit_x + quit_width && mouseY > quit_y && mouseY < quit_y + quit_height) {
+      exit();
+    }
+  }
 }
