@@ -77,10 +77,12 @@ public void setup() {
 public void draw() {
   if (game_start == 1) {
     start_screen();
-    if (keyPressed == true) {
-      reset_timer = millis();
-      initial_Data();
-      game_start = 0;
+    if (keyPressed) {
+      if (key == ENTER) {
+        reset_timer = millis();
+        initial_Data();
+        game_start = 0;
+      }
     }
   }
 
@@ -121,6 +123,7 @@ public void mousePressed() {
     }
   }
 }
+
 public void hit_mole() {
   x = mouseX;
   y = mouseY;
