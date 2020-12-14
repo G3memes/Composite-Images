@@ -1,5 +1,5 @@
 
-    pic = loadImage("face.png"); //Dimensions: 512 Width, 512 Height
+   /* pic = loadImage("face.png"); //Dimensions: 512 Width, 512 Height
     imageWidthRatio = 40.0/512.0;
     imageHeightRatio = (512.0/512.0)*imageWidthRatio;
     image_width = displayWidth*imageWidthRatio;
@@ -11,3 +11,4 @@
     println(image_x);
     println(image_y);
     image(pic, image_x, image_y, image_width, image_height);
+    */
