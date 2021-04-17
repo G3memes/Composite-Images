@@ -1,2 +1,2 @@
-# Composite-Images
-Composite images (Snow Globe, Measles, etc.)
+# Mini Whack-a-mole Game
+
